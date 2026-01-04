@@ -1,54 +1,75 @@
 
-# 🚀 Render Time Prediction for CG Pipeline
+🚀 Render Time Prediction for CG Pipeline
 
-This project focuses on building a **machine learning regression model** to predict **Blender render time** using key 3D scene parameters. The solution helps reduce trial-and-error and improves planning in CG production workflows.
+This project focuses on predicting Blender render time using machine learning, based on key 3D scene parameters.
+The goal is to estimate render time before rendering starts, so artists and teams can plan scenes better and avoid repeated trial-and-error during production.
 
----
+This problem is something I have personally faced while working with CG scenes, where small changes in scene complexity often lead to unexpected increases in render time.
 
-## 📌 Problem Statement
-Estimating render time for complex 3D scenes is difficult due to multiple interacting factors such as geometry complexity, textures, lighting, and resolution. This project aims to predict render time **before execution** using machine learning.
+📌 Problem Statement
 
----
+In CG production, estimating render time is challenging because it depends on multiple interacting factors such as:
 
-## 🧠 Approach
-- Problem Type: Regression
-- Models Used:
-  - Linear Regression (baseline)
-  - Random Forest Regressor (ensemble)
-- Random Forest achieved better accuracy by capturing non-linear relationships.
+scene geometry complexity
 
----
+texture size
 
-## 📊 Features Used
-- Polygon Count
-- Texture Size (MB)
-- Number of Lights
-- Output Resolution
+lighting setup
 
-**Target Variable:** Render Time (seconds)
+output resolution
 
----
+Render time is usually known only after execution, which makes planning inefficient.
+This project aims to predict render time in advance using a regression-based machine learning approach.
 
-## 📈 Results
-- Random Forest outperformed Linear Regression based on MAE and R² score.
-- Actual vs Predicted plots show strong alignment, indicating reliable predictions.
+🧠 Approach & Key Decisions
 
----
+Problem Type: Regression
 
-## 🛠️ Tech Stack
-- Python
-- Pandas, NumPy
-- Scikit-learn
-- Matplotlib, Seaborn
-- Jupyter Notebook
+I started with Linear Regression as a baseline model to understand basic relationships.
 
----
+Linear Regression struggled to model complex patterns between scene features and render time.
 
-## ✅ Conclusion
-The model provides accurate pre-render time estimation, enabling better scene optimization and efficient CG pipeline planning.
+I then used Random Forest Regressor, which performed better because render time increases non-linearly with scene complexity.
 
----
+Random Forest was chosen because it can naturally handle feature interactions without heavy manual feature engineering.
 
-## 🔮 Future Improvements
-- Automate data collection directly from Blender using bpy
-- Deploy the model as a Streamlit web application
+📊 Features Used
+
+The following features were selected based on real CG pipeline considerations:
+
+Polygon Count
+
+Texture Size (MB)
+
+Number of Lights
+
+Output Resolution
+
+Target Variable:
+
+Render Time (in seconds)
+
+📈 Results & Observations
+
+Random Forest outperformed Linear Regression based on MAE and R² score.
+
+Actual vs Predicted plots show a strong alignment, indicating the model captures scene complexity effectively.
+
+Scenes with similar polygon counts but larger textures showed higher render times, which the ensemble model handled better than the linear model.
+
+🛠️ Tech Stack
+
+Python
+
+Pandas, NumPy
+
+Scikit-learn
+
+Matplotlib, Seaborn
+
+Jupyter Notebook
+
+✅ Conclusion
+
+This project demonstrates that machine learning can be effectively used to estimate render time before execution.
+Such predictions can help artists optimize scenes earlier and improve overall CG pipeline efficiency.
