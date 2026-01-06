@@ -21,6 +21,39 @@ output resolution
 Render time is usually known only after execution, which makes planning inefficient.
 This project aims to predict render time in advance using a regression-based machine learning approach.
 
+## 🚀 Live Demo (Deployed App)
+
+🔗 **Streamlit App (Live on Hugging Face):**  
+https://huggingface.co/spaces/rakeshmahakur555/3d-production-analytics
+
+This is a production-ready analytics dashboard built using **Streamlit + Docker**, deployed on **Hugging Face Spaces**.
+
+---
+
+## 📊 3D Product Modeling Production Analytics
+
+This project analyzes a simulated **e-commerce 3D product modeling pipeline** (Amazon-style 360° viewer workflow) to optimize:
+
+- ⏱ Render Time
+- ✅ QC Pass Rate
+- 🔁 Revision Counts
+- 👨‍🎨 Artist & Software Performance
+
+### 🔧 Tech Stack
+- Python
+- Pandas, NumPy
+- Matplotlib
+- Streamlit
+- Docker
+- Hugging Face Spaces
+
+### 📌 Key Features
+- Interactive KPIs & charts
+- Dynamic data generation
+- End-to-end deployment (local → Docker → cloud)
+
+
+
 🧠 Approach & Key Decisions
 
 Problem Type: Regression
